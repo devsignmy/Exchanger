@@ -57,20 +57,19 @@
 								<td style="min-width: 180px">
 									<a href="" class="square-button" data-icon="eye"></a>
 									<a href="" class="square-button" data-icon="pencil"></a>
-									<a href="" class="square-button" data-icon="delete"></a>
+									<a href="/panel/user/delete/{{ $user->id }}" class="square-button" data-icon="delete"></a>
 								</td>
 							</tr>
 						@endforeach
-						@if (is_null($users))
+
+						@if (count($users) == 0)
 							<tr>
 								<td colspan="100" style="text-align:center">No Record Found</td>
-								
 							</tr>
 						@endif
 					</tbody>
 				</table>
 			</div>
-			
 			<div class="table-navigation">
 				<div class="pull-right">
 					<a href="/panel/user/{{$page["number"]-1}}" class="square-button @if($page['left_arrow']) disabled @endif" data-icon="arrow-left"></a>

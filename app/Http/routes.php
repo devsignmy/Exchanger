@@ -9,3 +9,4 @@ Route::get("/panel", "PanelController@getIndex");
 Route::get("/panel/logout", "PanelController@getLogout");
 Route::get("/panel/user/{page?}", "PanelUserController@getIndex")->where('page', '[0-9]+');
 Route::get("/panel/user/add", "PanelUserController@getAdd");
+Route::get("/panel/user/delete/{id}", "PanelUserController@getDelete")->where('id', '[0-9]+');

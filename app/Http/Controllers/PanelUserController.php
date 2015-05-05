@@ -46,4 +46,16 @@ class PanelUserController extends Controller {
 		return view("user.add", $this->data);
 	}
 
+	public function getDelete(Request $request, $id) {
+		$user = User::find($id);
+
+		if (is_null($user)) {
+			return redirect()->back();
+		}
+
+		$user->delete();
+
+		return redirect()->back();
+	}
+
 }
