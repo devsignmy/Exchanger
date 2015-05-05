@@ -34,6 +34,10 @@ class PanelUserController extends Controller {
 			$disableRight = false;
 		}
 
+		if ($pageTotal == 0) {
+			$pageTotal = 1;
+		}
+
 		$this->data["users"] = User::where("access_level", 1)->get();
 		$this->data["page"]["number"] = $page;
 		$this->data["page"]["total"] = $pageTotal;
