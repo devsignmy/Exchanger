@@ -12,6 +12,7 @@ class PanelUserController extends Controller {
 	public function __construct()
 	{
 		$this->middleware('auth');
+		$this->data["csrf_token"] = csrf_token();
 	}
 
 	public function getIndex($page = 1) {
@@ -39,6 +40,10 @@ class PanelUserController extends Controller {
 		$this->data["page"]["left_arrow"] = $disableLeft;
 		$this->data["page"]["right_arrow"] = $disableRight;
 		return view("user.index", $this->data);
+	}
+
+	public function getAdd() {
+		return view("user.add", $this->data);
 	}
 
 }

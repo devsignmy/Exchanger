@@ -61,6 +61,12 @@
 								</td>
 							</tr>
 						@endforeach
+						@if (is_null($users))
+							<tr>
+								<td colspan="100" style="text-align:center">No Record Found</td>
+								
+							</tr>
+						@endif
 					</tbody>
 				</table>
 			</div>
