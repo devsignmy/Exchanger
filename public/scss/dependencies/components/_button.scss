@@ -1,0 +1,105 @@
+button.raised-button,a.raised-button {
+	@include ty-button;
+	min-width: 88px;
+	background: transparent;
+	height: 36px;
+	line-height: 24px;
+	padding: 6px 12px;
+	border: 0;
+	margin: 0;
+	cursor: pointer;
+	display: block;
+	@include border-radius(2px);
+	@include transition(all 600ms $easeOutExpo);
+	@include box-shadow-z1;
+	float: left; 
+	position: relative;
+	text-decoration: none;
+
+	&:hover {
+		background: $color-grey-200;
+		&:active {
+			@include box-shadow-z3;
+		}
+	}
+
+	&.secondary {
+		color: $color-white;
+		background:$color-pink-500;
+		&:hover {
+			background:$color-pink-600;
+		}
+	}
+
+	&.primary {
+		color: $color-white;
+		background:$color-blue-500;
+		&:hover {
+			background:$color-blue-600;
+		}
+	}
+
+	&.green {
+		color: $color-white;
+		background:$color-green-500;
+		&:hover {
+			background:$color-green-600;
+		}
+	}
+}
+
+button.flat-button, a.flat-button {
+	@include ty-button;
+	min-width: 88px;
+	background: transparent;
+	height: 36px;
+	line-height: 24px;
+	padding: 6px 12px;
+	border: 0;
+	margin: 0;
+	cursor: pointer;
+	display: block;
+	@include border-radius(2px);
+	transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+	float: left; 
+	position: relative;
+	text-decoration: none;
+
+	&:hover {
+		background: $color-grey-200;
+	}
+
+	&.secondary {
+		color: $color-pink-500;
+		&:hover {
+			background:#ffe3ed;;
+		}
+	}
+
+	&.primary {
+		color: $color-blue-500;
+		&:hover {
+			background:$color-blue-100;
+		}
+	}
+
+	&.green {
+		color: $color-green-500;
+		&:hover {
+			background:$color-green-100;
+		}
+	}
+
+	&.grey {
+		color: $color-grey-500;
+		&:hover {
+			background:$color-grey-100;
+		}
+
+		& svg {
+			fill: $color-grey;
+		}
+	}
+
+}
+

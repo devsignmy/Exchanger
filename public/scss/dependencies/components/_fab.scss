@@ -1,0 +1,21 @@
+.fab {
+	position: absolute;
+	width: 56px;
+	height: 56px;
+	@include border-radius(50%);
+	@include box-shadow-z1;
+	background: $color-pink;
+	display: block;
+	top: 0;
+	left: 0;
+	padding: 16px;
+	@include transition(all 0.2s ease-in-out);
+	& svg {
+		fill: $color-white;
+	}
+
+	&:hover {
+		@include box-shadow-z2;
+		background: $color-pink-600;
+	}
+}

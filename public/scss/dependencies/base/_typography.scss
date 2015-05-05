@@ -1,0 +1,72 @@
+
+
+.font-display1 {
+	@include ty-display1;
+}
+
+.font-display2 {
+	@include ty-display2;
+}
+
+.font-display3 {
+	@include ty-display3;
+}
+
+.font-display4 {
+	@include ty-display4;
+}
+
+.font-headline {
+	@include ty-headline;
+}
+
+.font-title {
+	@include ty-title;
+}
+.font-subhead {
+	@include ty-subhead;
+}
+
+.font-body {
+	@include ty-body;
+}
+
+.font-body2 {
+	@include ty-body2;
+}
+
+.font-ultra-bold {
+	font-weight: 900;
+}
+
+.font-bold {
+	font-weight: 700;
+}
+
+.font-medium {
+	font-weight: 500;
+}
+
+.font-normal {
+	font-weight: 400;
+}
+
+.font-light {
+	font-weight: 300;
+}
+
+.font-thin {
+	font-weight: 100;
+}
+
+.font-grey {
+	color: $color-grey;
+}
+
+.font-grey-700 {
+	color: $color-grey-700;
+}
+
+.font-white {
+	color: $color-white;
+}

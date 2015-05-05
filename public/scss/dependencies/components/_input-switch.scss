@@ -1,0 +1,189 @@
+.input-switch {
+	height: 56px;
+	padding-top: 13px;
+	padding-bottom: 13px;
+	input[type="checkbox"] {
+		display: none;
+	}
+
+	.switcher {
+		height: 30px;
+		width: 36px;
+		position: relative;
+		cursor: pointer;
+		float: left;
+		margin-right: 16px;
+		.switcher-front {
+			background: $color-white;
+			@include box-shadow-z2;
+			@include border-radius(50%);
+			height: 20px;
+			width: 20px;
+			position: absolute;
+			top: 5px;
+			left: 0;
+			@include transition(all 0.3s $easeInOutExpo);
+			.switcher-ripple {
+				height: 36px;
+				width: 36px;
+				background: $color-grey-500;
+				opacity: 0.3;
+				@include border-radius(50%);
+				position: relative;
+				top: -8px;
+				left: -8px;
+				@include transform(scale(0));
+				@include transition((background 0.3s $easeInOutExpo, transform 0.5s $easeOutExpo));
+
+				&.clicked {
+					@include transform(scale(1));
+				}
+			}
+		}
+
+		.switcher-back {
+			background: $color-grey-400;
+			height: 12px;
+			width: 36px;
+			@include border-radius(6px);
+			position: absolute;
+			top: 9px;
+			left: 0;
+			@include transition(background 0.3s $easeInOutExpo);
+		}
+
+
+
+		&.active {
+			.switcher-front {
+				@include transform(translateX(16px));
+				background: $color-pink-300;
+
+				.switcher-ripple {
+					background: $color-pink;
+				}
+			}
+
+			.switcher-back {
+				background: $color-pink-200;
+			}
+		}
+
+		&.blue {
+			&.active {
+				.switcher-front {
+					background: $color-blue-300;
+					.switcher-ripple {
+						background: $color-blue;
+					}
+
+				}
+
+				.switcher-back {
+					background: $color-blue-200;
+				}
+			}
+		}
+
+		&.green {
+			&.active {
+				.switcher-front {
+					background: $color-green-300;
+
+					.switcher-ripple {
+						background: $color-green;
+					}
+				}
+
+				.switcher-back {
+					background: $color-green-200;
+				}
+			}
+		}
+
+		&.white-blue {
+			.switcher-front {
+				background: $color-blue-600;
+
+				.switcher-ripple {
+					background: $color-white;
+				}
+			}
+
+			.switcher-back {
+				background: $color-blue-800;
+			}
+
+			&.active {
+				.switcher-front {
+					background: $color-white;
+
+					.switcher-ripple {
+						background: $color-white;
+					}
+				}
+
+				.switcher-back {
+					background: $color-grey-200;
+				}
+			}
+		}
+
+		&.disabled {
+			.switcher-front {
+				background: $color-grey-500;
+			}
+
+			.switcher-back {
+				background: $color-grey-400;
+			}
+
+			&.active {
+				.switcher-front {
+					background: $color-grey-500;
+				}
+
+				.switcher-back {
+					background: $color-grey-400;
+				}
+			}
+		}
+
+		&.large {
+			height: 36px;
+			width: 36px;
+			top: -3px;
+			.switcher-front {
+				height: 24px;
+				width: 24px;
+				.switcher-ripple {
+					height: 40px;
+					width: 40px;
+					top: -8px;
+				}
+				&.active {
+					@include transform(translateX(px));
+				}
+			}
+
+			.switcher-back {
+				height: 16px;
+				width: 40px;
+				@include border-radius(8px);
+				top: 10px;
+				left: 0;
+			}	
+		}
+	}
+
+	.switch-label {
+		line-height: 30px;
+		font-size: 15px;
+		color: $color-grey;
+		@include transition(color 0.3s $easeInOutExpo);
+		cursor: pointer;
+		&.active {
+			color: #212121;
+		}
+	}
+}

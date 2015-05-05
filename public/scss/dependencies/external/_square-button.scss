@@ -1,0 +1,39 @@
+a.square-button {
+	width: 36px;
+	height: 36px;
+	display: inline-block;
+	float: left;
+	padding: 6px;
+	@include border-radius(2px);
+	margin-right: 4px;
+	@include transition(background 0.2s ease-in-out);
+
+	& svg {
+		fill: $color-grey;
+	}
+
+	&:hover {
+		background: $color-blue-100;
+
+		& svg {
+			fill: $color-blue-300;
+		}
+	}
+
+	&[data-icon="delete"]:hover {
+		background: $color-red-100;
+
+		& svg {
+			fill: $color-red-300;
+		}
+	}
+
+	&.disabled {
+		pointer-events: none;
+		cursor: default;
+
+		& svg {
+			fill: $color-grey-400;
+		}
+	}
+}

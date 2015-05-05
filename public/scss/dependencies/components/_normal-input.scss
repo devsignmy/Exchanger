@@ -1,0 +1,30 @@
+.normal-input {
+	height: 56px;
+	position: relative;
+	border-bottom: 1px solid $color-grey-300;
+	margin-bottom: 24px;
+	input {
+		border: 0;
+		position: absolute;
+		@extend .middle-top;
+		font-size: 15px;
+		height: 54px;
+		width: 100%;
+		color: rgba(0, 0, 0, 0.87);
+		line-height: 54px;
+	}
+
+	.border-line {
+	    width: 100%;
+	    position: absolute;
+	    bottom: -1px;
+	    left: 0;
+	    height: 2px;
+	    background: $color-pink;
+	    @include transform(scaleX(0));
+	    @include transition(transform 0.5s $easeInOutExpo);
+	    &.active {
+	        @include transform(scaleX(1));
+	    }
+	}
+}
