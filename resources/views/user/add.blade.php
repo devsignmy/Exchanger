@@ -43,27 +43,27 @@
 					<input type="hidden" name="_token" value="{{ $csrf_token }}">
 					<div class="row">
 						<div class="col-xs-fluid-8">
-							<input type="text" placeholder="Firstname" name="username_email" data-normal-input />
+							<input type="text" placeholder="Firstname" name="firstname" data-normal-input />
 						</div>
 						<div class="col-xs-fluid-8">
-							<input type="text" placeholder="Lastname" name="username_email" data-normal-input />
+							<input type="text" placeholder="Lastname" name="lastname" data-normal-input />
 						</div>
 						<div class="col-xs-fluid-8">
-							<input type="text" placeholder="Username" name="username_email" data-normal-input />
+							<input type="text" placeholder="Username" name="username" data-normal-input />
 						</div>
 						<div class="col-xs-fluid-8">
-							<input type="text" placeholder="Email" name="username_email" data-normal-input />
+							<input type="text" placeholder="Email" name="email" data-normal-input />
 						</div>
 						<div class="col-xs-fluid-8">
-							<input type="text" placeholder="Phone number" name="username_email" data-normal-input />
+							<input type="text" placeholder="Phone number" name="phone_number" data-normal-input />
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-xs-fluid-8">
-							<input type="password" placeholder="Password" name="username_email" data-normal-input />
+							<input type="password" placeholder="Password" name="password" data-normal-input />
 						</div>
 						<div class="col-xs-fluid-8">
-							<input type="password" placeholder="Confirm Password" name="username_email" data-normal-input />
+							<input type="password" placeholder="Confirm Password" name="confirm_password" data-normal-input />
 						</div>
 					</div>
 				</div>

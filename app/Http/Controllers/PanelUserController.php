@@ -1,9 +1,9 @@
 <?php namespace Exchanger\Http\Controllers;
 
-use Request;
 use Hash;
 use Auth;
 use Exchanger\User;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 class PanelUserController extends Controller {
@@ -48,6 +48,21 @@ class PanelUserController extends Controller {
 
 	public function getAdd() {
 		return view("user.add", $this->data);
+	}
+
+	public function postAdd(Request $request) {
+		$user = new User();
+		$user->firstname = $request->input("firstname");
+		$user->lastname = $request->input("lastname");
+		$user->username = $request->input("username");
+		$user->email = $request->input("email");
+		$user->phone_number = $request->input("phone_number");
+		$user->password = Hash::make($request->input("firstname"));
+		$user->access_level = 1;
+
+		$user->save();
+
+		return redirect()->to("/panel/user/");
 	}
 
 	public function getDelete(Request $request, $id) {
