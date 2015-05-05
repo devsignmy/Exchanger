@@ -5,6 +5,7 @@ use Auth;
 use Exchanger\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Crypt;
 
 class PanelUserController extends Controller {
 	protected $data;
@@ -73,6 +74,38 @@ class PanelUserController extends Controller {
 		}
 
 		$user->delete();
+
+		return redirect()->back();
+	}
+
+	public function getEdit($id) {
+		$user = User::find($id);
+
+		if (is_null($user)) {
+			return redirect()->back();
+		}
+
+		$this->data["user"] = $user;
+		$this->data["encrypt_id"] = Crypt::encrypt($user->id);
+		return view("user.edit", $this->data);
+
+	}
+
+	public function postEdit(Request $request) {
+		$user = User::find(Crypt::decrypt($request->input("user_id")));
+
+		if (is_null($user)) {
+			return redirect()->back();
+		}
+
+		$user->firstname = $request->input("firstname");
+		$user->lastname = $request->input("lastname");
+		$user->username = $request->input("username");
+		$user->email = $request->input("email");
+		$user->phone_number = $request->input("phone_number");
+		$user->access_level = 1;
+
+		$user->save();
 
 		return redirect()->back();
 	}
