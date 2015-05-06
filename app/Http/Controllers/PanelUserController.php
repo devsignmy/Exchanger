@@ -50,7 +50,7 @@ class PanelUserController extends Controller {
 		$this->data["page"]["total"] = $pageTotal;
 		$this->data["page"]["left_arrow"] = $disableLeft;
 		$this->data["page"]["right_arrow"] = $disableRight;
-		return view("user.index", $this->data);
+		return view("panel.user.index", $this->data);
 	}
 
 	/**
@@ -58,7 +58,7 @@ class PanelUserController extends Controller {
 	 */
 	
 	public function getAdd() {
-		return view("user.add", $this->data);
+		return view("panel.user.add", $this->data);
 	}
 
 	public function postAdd(Request $request) {
@@ -109,7 +109,7 @@ class PanelUserController extends Controller {
 
 		$this->data["user"] = $user;
 		$this->data["encrypt_id"] = Crypt::encrypt($user->id);
-		return view("user.edit", $this->data);
+		return view("panel.user.edit", $this->data);
 
 	}
 	
@@ -136,7 +136,7 @@ class PanelUserController extends Controller {
 		$user = User::find($id);
 
 		$this->data['encrypted_id'] = Crypt::encrypt($user->id);
-		return view("user.password", $this->data);
+		return view("panel.user.password", $this->data);
 	}
 
 	public function postPassword(Request $request) {

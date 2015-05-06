@@ -15,7 +15,7 @@ class PanelController extends Controller {
 	}
 
 	public function getIndex() {
-		return view("panel");
+		return view("panel.index");
 	}
 
 	public function getLogout() {
