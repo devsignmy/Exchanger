@@ -23,6 +23,10 @@ class PublicController extends Controller {
 	}
 
 	public function getLogin() {
+		if (Auth::check()) {
+			return redirect()->to("panel/");
+		}
+
 		return view("login", $this->data);
 	}
 
