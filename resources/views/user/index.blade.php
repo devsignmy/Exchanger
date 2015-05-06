@@ -33,9 +33,7 @@
 	</div>
 	
 	<div style="padding: 16px; max-width: 1312px; margin: 0 auto">
-		<div class="alert">
-			This is Naqib! This alert needs your attention, but it's not super important.
-		</div>
+		@include('templates.page-message', compact("success", "error"))
 		<div class="table-container">
 			<div class="table-title">User Manager <a class="fab" href="/panel/user/add"><i data-icon="plus"></i></a></div>
 			<div class="table-responsive">

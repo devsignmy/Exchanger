@@ -56,7 +56,6 @@
 
 		@show
 		@yield("content")
-
 		@section("js")
 			<script src="/js/jquery.min.js"></script>
 			<script src="/js/disableScroll.js"></script>

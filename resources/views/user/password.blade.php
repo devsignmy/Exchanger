@@ -33,11 +33,9 @@
 	</div>
 	
 	<div style="padding: 16px; max-width: 1312px; margin: 0 auto">
-		<div class="alert">
-			This is Naqib! This alert needs your attention, but it's not super important.
-		</div>
+		@include('templates.page-message', compact("success", "error"))
 		<div class="card">
-			<form method="POST" action="/panel/user/add" style="margin: 0">
+			<form method="POST" action="/panel/user/password" style="margin: 0">
 				<div class="card-title">
 					<div class="font-title font-normal">Change User Password</div>
 					<input type="hidden" name="_token" value="{{ $csrf_token }}">

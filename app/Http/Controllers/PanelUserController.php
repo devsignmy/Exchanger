@@ -90,7 +90,7 @@ class PanelUserController extends Controller {
 		return view("user.edit", $this->data);
 
 	}
-
+	
 	public function postEdit(Request $request) {
 		$user = User::find(Crypt::decrypt($request->input("user_id")));
 
@@ -107,7 +107,7 @@ class PanelUserController extends Controller {
 
 		$user->save();
 
-		return redirect()->back();
+		return redirect()->back()->with('success', 'Successfully update user details');
 	}
 
 	public function getPassword(Request $request, $id) {
@@ -115,7 +115,6 @@ class PanelUserController extends Controller {
 
 		$this->data['encrypted_id'] = Crypt::encrypt($user->id);
 		return view("user.password", $this->data);
-		// $_SERVER['HTTP_REFERER'];
 	}
 
 	public function postPassword(Request $request) {
@@ -124,10 +123,10 @@ class PanelUserController extends Controller {
 		if (Hash::check($request->input("old_password"), $user->password) && $request->input("password") == $request->input("confirm_password")) {
 			$user->password = $request->input("password");
 			$user->save();
-			return redirect()->back();
+			return redirect()->back()->with("success", "Successfully change password");
 		} 
 
-		return redirect()->back();
+		return redirect()->back()->with("error","There are error when changing the user's password");
 	}
 
 }
