@@ -5,14 +5,23 @@ Route::get("/login", "PublicController@getLogin");
 Route::post("/login", "PublicController@postLogin");
 Route::post("/signup", "PublicController@postSignup");
 
-Route::get("/panel", "PanelController@getIndex");
-Route::get("/panel/logout", "PanelController@getLogout");
-Route::get("/panel/user/{page?}", "PanelUserController@getIndex")->where('page', '[0-9]+');
-Route::get("/panel/user/add", "PanelUserController@getAdd");
-Route::post("/panel/user/add", "PanelUserController@postAdd");
-Route::get("/panel/user/delete/{id}", "PanelUserController@getDelete")->where('id', '[0-9]+');
-Route::get("/panel/user/edit/{id}", "PanelUserController@getEdit")->where('id', '[0-9]+');
-Route::post("/panel/user/edit", "PanelUserController@postEdit");
-Route::get("/panel/user/password/{id}", "PanelUserController@getPassword")->where('id', '[0-9]+');
-Route::post("/panel/user/password", "PanelUserController@postPassword");
-Route::get("/panel/user/restore/{id}", "PanelUserController@getRestore")->where('id', '[0-9]+');
+Route::group(["prefix" => "panel"], function() {
+	Route::get("/", "PanelController@getIndex");
+	Route::get("/logout", "PanelController@getLogout");
+
+	Route::group(["prefix" => "user"], function() {
+		Route::get("/{page?}", "PanelUserController@getIndex")->where('page', '[0-9]+');
+
+		Route::get("/add", "PanelUserController@getAdd");
+		Route::post("/add", "PanelUserController@postAdd");
+
+		Route::get("/edit/{id}", "PanelUserController@getEdit")->where('id', '[0-9]+');
+		Route::post("/edit", "PanelUserController@postEdit");
+
+		Route::get("/password/{id}", "PanelUserController@getPassword")->where('id', '[0-9]+');
+		Route::post("/password", "PanelUserController@postPassword");
+
+		Route::get("/delete/{id}", "PanelUserController@getDelete")->where('id', '[0-9]+');
+		Route::get("/restore/{id}", "PanelUserController@getRestore")->where('id', '[0-9]+');
+	});
+});
