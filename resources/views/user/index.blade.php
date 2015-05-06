@@ -57,6 +57,7 @@
 								<td style="min-width: 180px">
 									<a href="" class="square-button" data-icon="eye"></a>
 									<a href="/panel/user/edit/{{ $user->id }}" class="square-button" data-icon="pencil"></a>
+									<a href="/panel/user/password/{{ $user->id }}" class="square-button" data-icon="key-change"></a>
 									<a href="/panel/user/delete/{{ $user->id }}" class="square-button" data-icon="delete"></a>
 								</td>
 							</tr>

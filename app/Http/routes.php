@@ -13,3 +13,4 @@ Route::post("/panel/user/add", "PanelUserController@postAdd");
 Route::get("/panel/user/delete/{id}", "PanelUserController@getDelete")->where('id', '[0-9]+');
 Route::get("/panel/user/edit/{id}", "PanelUserController@getEdit")->where('id', '[0-9]+');
 Route::post("/panel/user/edit", "PanelUserController@postEdit");
+Route::get("/panel/user/password/{id}", "PanelUserController@getPassword")->where('id', '[0-9]+');
