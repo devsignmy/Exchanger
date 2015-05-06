@@ -16,7 +16,13 @@ class PanelUserController extends Controller {
 		$this->data["csrf_token"] = csrf_token();
 	}
 
-	public function getIndex($page = 1) {
+	/**
+	 * [Route GET User Manager Index]
+	 * @param  [Request] Request $request 
+	 * @param  [Integer] [$page = 1]      [[Page Number]]
+	 */
+	
+	public function getIndex(Request $request, $page = 1) {
 		$userCount = User::where("access_level", 1)->count();
 
 		$pageTotal = intval($userCount / 10);
@@ -47,6 +53,10 @@ class PanelUserController extends Controller {
 		return view("user.index", $this->data);
 	}
 
+	/**
+	 * [[Route GET User Manager Add]]
+	 */
+	
 	public function getAdd() {
 		return view("user.add", $this->data);
 	}
@@ -70,19 +80,31 @@ class PanelUserController extends Controller {
 		$user = User::find($id);
 
 		if (is_null($user)) {
-			return redirect()->back();
+			return redirect()->back()->with("error", "Cannot find user data");
 		}
 
 		$user->delete();
 
-		return redirect()->back();
+		return redirect()->back()->with("success", 'Succefully delete. Restore user back <a href="/panel/user/restore/'. $user->id .'">here</a>');
+	}
+	
+	public function getRestore(Request $request, $id) {
+		$user = User::onlyTrashed()->find($id);
+		
+		if (is_null($user)) {
+			return redirect()->back()->with("error", "Cannot find user data");
+		}
+		
+		$user->restore();
+		
+		return redirect()->back()->with("success", "Successfully restore user's data with username : ". $user->username);
 	}
 
 	public function getEdit($id) {
 		$user = User::find($id);
 
 		if (is_null($user)) {
-			return redirect()->back();
+			return redirect()->back()->with("error", "Cannot find user data");
 		}
 
 		$this->data["user"] = $user;
