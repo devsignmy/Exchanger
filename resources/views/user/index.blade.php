@@ -71,9 +71,9 @@
 			</div>
 			<div class="table-navigation">
 				<div class="pull-right">
-					<a href="/panel/user/{{$page["number"]-1}}" class="square-button @if($page['left_arrow']) disabled @endif" data-icon="arrow-left"></a>
+					<a href="/panel/user/{{$page["number"]-1}}" class="square-button @if($page['left_arrow']) disabled @endif" data-icon="chevron-left"></a>
 					<div class="navigation-text">Page {{$page["number"]}} of {{ $page["total"]}}</div>
-					<a href="/panel/user/{{$page["number"]+1}}" class="square-button @if($page['right_arrow']) disabled @endif" data-icon="arrow-right"></a>
+					<a href="/panel/user/{{$page["number"]+1}}" class="square-button @if($page['right_arrow']) disabled @endif" data-icon="chevron-right"></a>
 				</div>
 			</div>	
 		</div>
