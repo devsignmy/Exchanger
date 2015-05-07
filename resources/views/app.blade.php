@@ -24,7 +24,7 @@
 					</div>
 					<div class="nav-content">
 						<div class="nav-menu">
-							<a class="nav-list active" href="/"><i data-icon="home"></i> Home</a>
+							<a class="nav-list" href="/"><i data-icon="home"></i> Home</a>
 							<a class="nav-list" href="/panel"><i data-icon="apps"></i> Dashboard Panel</a>
 							<a class="nav-list" href="/login"><i data-icon="apps"></i> Login Page</a>
 							<a class="nav-list" href="/table"><i data-icon="apps"></i> Table</a>
@@ -42,9 +42,9 @@
 					</div>
 					<div class="nav-content">
 						<div class="nav-menu">
-							<a class="nav-list active" href="/"><i data-icon="home"></i> Home</a>
-							<a class="nav-list" href="/panel/"><i data-icon="apps"></i> Dashboard Panel</a>
-							<a class="nav-list" href="/panel/user/"><i data-icon="account"></i> User Manager</a>
+							<a class="nav-list @if($navigation_menu == 'home') active @endif" href="/"><i data-icon="home"></i> Home</a>
+							<a class="nav-list @if($navigation_menu == 'panel') active @endif" href="/panel/"><i data-icon="apps"></i> Dashboard Panel</a>
+							<a class="nav-list @if($navigation_menu == 'user') active @endif" href="/panel/user/"><i data-icon="account"></i> User Manager</a>
 							<a class="nav-list" href="/panel/logout/"><i data-icon="key"></i> Logout</a>
 						</div>
 					</div>

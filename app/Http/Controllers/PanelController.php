@@ -12,10 +12,11 @@ class PanelController extends Controller {
 	public function __construct()
 	{
 		$this->middleware('auth');
+		$this->data["navigation_menu"] = "panel";
 	}
 
 	public function getIndex() {
-		return view("panel.index");
+		return view("panel.index", $this->data);
 	}
 
 	public function getLogout() {

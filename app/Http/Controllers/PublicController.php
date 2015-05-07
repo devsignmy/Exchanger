@@ -16,6 +16,7 @@ class PublicController extends Controller {
 	{
 		$this->middleware('guest');
 		$this->data["csrf_token"] = csrf_token();
+		$this->data["navigation_menu"] = "home";
 	}
 
 	public function getIndex() {
