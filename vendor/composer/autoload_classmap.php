@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AddPhoneNumberToUsersTable' => $baseDir . '/database/migrations/2015_05_05_093638_add_phone_number_to_users_table.php',
+    'CreateCountriesTable' => $baseDir . '/database/migrations/2015_05_07_170314_create_countries_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2015_05_04_150413_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/File/Iterator.php',
