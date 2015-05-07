@@ -2,6 +2,10 @@
 
 @section("pageTitle", "Blank Template")
 
+@section("toolbar")
+	@include('templates.default-toolbar')
+@stop
+
 @section("content")
 	<div style="padding: 16px; max-width: 1312px; margin: 0 auto">
 		@include('templates.page-message', compact("success", "error"))
