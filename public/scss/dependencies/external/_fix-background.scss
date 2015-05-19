@@ -1,0 +1,12 @@
+.fix-background {
+	width: 100%;
+	background: $color-grey-900;
+	padding-top: 48px;
+	padding-bottom: 48px;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	height: 60%;
+	position: fixed;
+
+}

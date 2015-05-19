@@ -12,7 +12,7 @@
 	}
 
 	.side-navigation-inner {
-		width: 290px;
+		width: 320px;
 		max-width: 90%;
 		height: 100%;
 		@include box-shadow(0);
@@ -30,6 +30,31 @@
 
 			@include breakpoint("xd") {
 				height: 64px;
+			}
+		}
+
+		& .nav-profile {
+			padding: 24px 16px;
+			border: 1px solid $color-grey-100;
+
+			& img {
+				width: 64px;
+				height: 64px;
+				display: block;
+				@include border-radius(50%);
+				margin: 0;
+			}
+
+			& .profile-name {
+				@include ty-body;
+				font-weight: 500;
+				padding-top: 16px;
+			}
+
+			.profile-email {
+				@include ty-body;
+				font-weight: 400;
+				color: $color-grey-500;
 			}
 		}
 

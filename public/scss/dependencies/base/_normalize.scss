@@ -17,7 +17,8 @@
 }
 
 body {
-    background-color: $color-grey-300;
+    background-color: $color-grey-200;
+	line-height: 24px;
 }
 
 html, body {
@@ -72,3 +73,9 @@ img.img-responsive {
     max-width: 100%;
     // @include border-radius(50%);
 }
+
+form {
+	margin: 0;
+}
+
+

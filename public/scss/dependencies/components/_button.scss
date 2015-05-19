@@ -15,6 +15,7 @@ button.raised-button,a.raised-button {
 	float: left; 
 	position: relative;
 	text-decoration: none;
+	background: $color-grey-100;
 
 	&:hover {
 		background: $color-grey-200;
@@ -45,6 +46,18 @@ button.raised-button,a.raised-button {
 		&:hover {
 			background:$color-green-600;
 		}
+	}
+
+	&.primary, &.green, &.secondary {
+		svg {
+			fill: $color-white;
+		}
+	}
+
+
+	&.button-block {
+		width: 100%;
+		max-width: 100%;
 	}
 }
 

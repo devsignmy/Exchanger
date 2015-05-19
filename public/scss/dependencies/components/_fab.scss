@@ -10,6 +10,7 @@
 	left: 0;
 	padding: 16px;
 	@include transition(all 0.2s ease-in-out);
+	z-index: 100;
 	& svg {
 		fill: $color-white;
 	}
@@ -17,5 +18,14 @@
 	&:hover {
 		@include box-shadow-z2;
 		background: $color-pink-600;
+	}
+
+	&.fixed {
+		right: 24px;
+		bottom: 24px;
+		left: auto;
+		top: auto;
+		position: fixed;
+		z-index: 100;
 	}
 }

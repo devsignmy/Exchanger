@@ -9,6 +9,14 @@
 	overflow: hidden;
 	background: $color-white;
 	text-decoration: none;
+	position: relative;
+	z-index: 2;
+	display: block;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: none;
+	}
 	.card-profile {
 		height: 72px;
 		padding: 16px;
@@ -52,6 +60,7 @@
 		padding-bottom: 56.25%;
 		position: relative;
 		overflow: hidden;
+		display: block;
 		img {
 			width: 100%;
 			@extend .middle-center;
@@ -70,6 +79,20 @@
 			@include border-radius(2px);
 			opacity: 0;
 			@include transition(opacity 0.4s $easeInOutExpo);
+
+			&.tag-big {
+				font-size: 16px;
+				line-height: 30px;
+			}
+
+			&.tag-xbig {
+				line-height: 40px;
+				font-size: 18px;
+			}
+
+			&.tag-fix {
+				opacity: 1;
+			}
 		}
 
 		.card-image-title {

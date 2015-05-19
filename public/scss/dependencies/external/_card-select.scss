@@ -1,0 +1,30 @@
+.card-can-select {
+	.card {
+		cursor: pointer;
+		.card-image {
+			.card-image-title {
+				@include transition((background 0.4s ease-in-out, transform 0.4s $easeInOutExpo));
+			}
+		}
+
+		&.active {
+//			border: 3px solid $color-pink-500;
+
+			.card-image {
+				.card-tag {
+					opacity: 1;
+				}
+
+				.card-image-title {
+					@include transform(translateY(0));
+					background: $color-pink;
+					color: $color-white ;
+
+					.font-title {
+						color: inherit;
+					}
+				}
+			}
+		}
+	}
+}

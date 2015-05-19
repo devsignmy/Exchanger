@@ -5,13 +5,36 @@ svg#devsign-logo {
 	.stroke {
 	  	stroke-dasharray: 92.18;
 	  	stroke-dashoffset: 553.08;
-	  	-webkit-animation: dash 2s linear infinite;
-	  	animation: dash 2s linear infinite;
+	  	@include animation(dash 2s linear infinite);
 	}
 }
 
 
 @-webkit-keyframes dash {
+  	0% {
+    	stroke-dashoffset: 553.08;
+    	stroke-dasharray: 276.54;
+  	}
+
+  	100% {
+  		stroke-dashoffset: 276.68;
+  		stroke-dasharray: 553.08;
+  	}
+}
+
+@-ms-keyframes dash {
+  	0% {
+    	stroke-dashoffset: 553.08;
+    	stroke-dasharray: 276.54;
+  	}
+
+  	100% {
+  		stroke-dashoffset: 276.68;
+  		stroke-dasharray: 553.08;
+  	}
+}
+
+@keyframes dash {
   	0% {
     	stroke-dashoffset: 553.08;
     	stroke-dasharray: 276.54;

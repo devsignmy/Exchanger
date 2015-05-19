@@ -1,0 +1,82 @@
+.polygon-background {
+	width: 100%;
+	background: $color-blue;
+	padding-top: 150px;
+	padding-bottom: 150px;
+	position: relative;
+
+	&.green {
+		background: $color-green;
+	}
+
+	&.pink {
+		background: $color-pink;
+	}
+
+	&:before {
+		position: absolute;
+		left: 0;
+		width: 100%;
+		height: 150px;
+		background-position: 0 0px;
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+		pointer-events: none;
+		top: 0;
+		background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="320" height="30" viewBox="0 0 320 30" version="1.1"><polygon points="0,0 0,30 320,0" style="fill:rgb(255, 255, 255);"></polygon></svg>');
+		content: '';
+	}
+
+	&:after {
+		position: absolute;
+		left: 0;
+		width: 100%;
+		height: 150px;
+		background-position: 0 0px;
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+		pointer-events: none;
+		bottom: 0;
+		background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="1440" height="300" viewBox="0 0 1440 300" version="1.1"><polygon points="0,0 0,300 1440,300" style="fill:rgb(255, 255, 255);"></polygon></svg>');
+		content: '';
+		z-index: 6;
+	}
+
+	&.inverse {
+		&:before {
+			background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="1440" height="500" viewBox="0 0 1440 500" version="1.1"><polygon points="0,0 1440,0 1440,500" style="fill:rgb(255, 255, 255);"></polygon></svg>');
+		}
+
+		&:after {
+			background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="1440" height="300" viewBox="0 0 1440 300" version="1.1"><polygon points="0,300 1440,300 1440,0" style="fill:rgb(255, 255, 255);"></polygon></svg>');
+		}
+	}
+
+	&.sm-deg-top {
+		padding-top: 50px;
+		&:before {
+			height: 50px;
+		}
+	}
+
+	&.sm-deg-bottom {
+		padding-bottom: 50px;
+		&:after {
+			height: 50px;
+		}
+	}
+
+	&.md-deg-top {
+		padding-top: 100px;
+		&:before {
+			height: 100px;
+		}
+	}
+
+	&.md-deg-bottom {
+		padding-bottom: 100px;
+		&:after {
+			height: 100px;
+		}
+	}
+}
