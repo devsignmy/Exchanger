@@ -40,6 +40,11 @@
 					<div class="nav-top">
 						
 					</div>
+					<div class="nav-profile">
+						<a href="javascript:"><img src="/img/profile.png" alt=""></a>
+						<div class="profile-name">{{$loginuser->firstname . " " . $loginuser->lastname}}</div>
+						<div class="profile-email">{{ $loginuser->email }}</div>
+					</div>
 					<div class="nav-content">
 						<div class="nav-menu">
 							<a class="nav-list @if($navigation_menu == 'panel') active @endif" href="/panel/"><i data-icon="apps"></i> Dashboard Panel</a>

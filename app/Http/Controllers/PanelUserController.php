@@ -15,6 +15,7 @@ class PanelUserController extends Controller {
 		$this->middleware('auth');
 		$this->data["csrf_token"] = csrf_token();
 		$this->data["navigation_menu"] = "user";
+		$this->data["loginuser"] = User::find(Auth::user()->id);
 	}
 
 	/**
