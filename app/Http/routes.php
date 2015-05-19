@@ -28,5 +28,7 @@ Route::group(["prefix" => "panel"], function() {
 
 	Route::group(["prefix" => "bank"], function() {
 		Route::get("/{page?}", "PanelBankController@getIndex")->where("page", '[0-9]+');
+		Route::get("/add", "PanelBankController@getAdd");
+		Route::post("/add", "PanelBankController@postAdd");
 	});
 });

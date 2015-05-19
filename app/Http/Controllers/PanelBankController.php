@@ -4,6 +4,7 @@ use Hash;
 use Auth;
 use Exchanger\User;
 use Exchanger\Bank;
+use Exchanger\Country;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Crypt;
@@ -48,6 +49,23 @@ class PanelBankController extends Controller {
 		$this->data["page"]["right_arrow"] = $disableRight;
 		$this->data["banks"] = $banks;
 		return view("panel.bank.index", $this->data);
+	}
+
+	public function getAdd() {
+		$this->data["countrys"] = Country::where("name", "<>", "Others")->get();
+		return view("panel.bank.add", $this->data);
+	}
+
+	public function postAdd(Request $request) {
+		$bank = new Bank();
+		$bank->name = $request->input("name");
+		$bank->holder_name = $request->input("holder_name");
+		$bank->holder_number = $request->input("holder_number");
+		$bank->country_id = $request->input("country_id");
+
+		$bank->save();
+
+		return redirect()->to("/panel/bank/")->with("success", "Successfully add new bank account");
 	}
 
 
