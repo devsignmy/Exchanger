@@ -152,4 +152,6 @@ class PanelUserController extends Controller {
 		return redirect()->back()->with("error","There are error when changing the user's password");
 	}
 
+
+
 }

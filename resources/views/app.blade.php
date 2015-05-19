@@ -42,7 +42,6 @@
 					</div>
 					<div class="nav-content">
 						<div class="nav-menu">
-							<a class="nav-list @if($navigation_menu == 'home') active @endif" href="/"><i data-icon="home"></i> Home</a>
 							<a class="nav-list @if($navigation_menu == 'panel') active @endif" href="/panel/"><i data-icon="apps"></i> Dashboard Panel</a>
 							<a class="nav-list @if($navigation_menu == 'user') active @endif" href="/panel/user/"><i data-icon="account"></i> User Manager</a>
 							<a class="nav-list" href="/panel/logout/"><i data-icon="key"></i> Logout</a>

@@ -8,6 +8,7 @@ Route::post("/signup", "PublicController@postSignup");
 Route::group(["prefix" => "panel"], function() {
 	Route::get("/", "PanelController@getIndex");
 	Route::get("/logout", "PanelController@getLogout");
+	Route::post("/change-price", "PanelController@postChangePrice");
 
 	Route::group(["prefix" => "user"], function() {
 		Route::get("/{page?}", "PanelUserController@getIndex")->where('page', '[0-9]+');

@@ -48,10 +48,10 @@
 				<div class="card">
 					<div class="card-title">
 						<div class="font-title font-light font-grey">Price in USD : </div>
-						<div class="font-display1 font-light">USD 10.00</div>
+						<div class="font-display1 font-light">USD {{ Exchanger\Price::getUSDBuy() }}</div>
 					</div>
 					<div class="card-action">
-						<button class="flat-button primary m-r-8 ripple" data-dialog=".dialog">Change Price</button>
+						<button class="flat-button primary m-r-8 ripple" data-dialog="#usd-buy">Change Price</button>
 					</div>
 				</div>
 			</div>
@@ -59,10 +59,10 @@
 				<div class="card">
 					<div class="card-title">
 						<div class="font-title font-light font-grey">Price in MYR : </div>
-						<div class="font-display1 font-light">USD 10.00</div>
+						<div class="font-display1 font-light">MYR {{ Exchanger\Price::getMYRBuy() }}</div>
 					</div>
 					<div class="card-action">
-						<button class="flat-button primary m-r-8 ripple">Change Price</button>
+						<button class="flat-button primary m-r-8 ripple"  data-dialog="#myr-buy">Change Price</button>
 					</div>
 				</div>
 			</div>
@@ -70,10 +70,10 @@
 				<div class="card">
 					<div class="card-title">
 						<div class="font-title font-light font-grey">Price in IDR : </div>
-						<div class="font-display1 font-light">USD 10.00</div>
+						<div class="font-display1 font-light">IDR {{ Exchanger\Price::getIDRBuy() }}</div>
 					</div>
 					<div class="card-action">
-						<button class="flat-button primary m-r-8 ripple">Change Price</button>
+						<button class="flat-button primary m-r-8 ripple"  data-dialog="#idr-buy">Change Price</button>
 					</div>
 				</div>
 			</div>
@@ -81,10 +81,10 @@
 				<div class="card">
 					<div class="card-title">
 						<div class="font-title font-light font-grey">Price in BAHT : </div>
-						<div class="font-display1 font-light">USD 10.00</div>
+						<div class="font-display1 font-light">BAHT {{ Exchanger\Price::getBAHTBuy() }}</div>
 					</div>
 					<div class="card-action">
-						<button class="flat-button primary m-r-8 ripple">Change Price</button>
+						<button class="flat-button primary m-r-8 ripple"  data-dialog="#baht-buy">Change Price</button>
 					</div>
 				</div>
 			</div>
@@ -95,10 +95,10 @@
 				<div class="card">
 					<div class="card-title">
 						<div class="font-title font-light font-grey">Price in USD : </div>
-						<div class="font-display1 font-light">USD 10.00</div>
+						<div class="font-display1 font-light">USD {{ Exchanger\Price::getUSDSell() }}</div>
 					</div>
 					<div class="card-action">
-						<button class="flat-button primary m-r-8 ripple">Change Price</button>
+						<button class="flat-button primary m-r-8 ripple" data-dialog="#usd-sell">Change Price</button>
 					</div>
 				</div>
 			</div>
@@ -106,10 +106,10 @@
 				<div class="card">
 					<div class="card-title">
 						<div class="font-title font-light font-grey">Price in MYR : </div>
-						<div class="font-display1 font-light">USD 10.00</div>
+						<div class="font-display1 font-light">MYR {{ Exchanger\Price::getMYRSell() }}</div>
 					</div>
 					<div class="card-action">
-						<button class="flat-button primary m-r-8 ripple">Change Price</button>
+						<button class="flat-button primary m-r-8 ripple" data-dialog="#myr-sell">Change Price</button>
 					</div>
 				</div>
 			</div>
@@ -117,10 +117,10 @@
 				<div class="card">
 					<div class="card-title">
 						<div class="font-title font-light font-grey">Price in IDR : </div>
-						<div class="font-display1 font-light">USD 10.00</div>
+						<div class="font-display1 font-light">IDR {{ Exchanger\Price::getIDRSell() }}</div>
 					</div>
 					<div class="card-action">
-						<button class="flat-button primary m-r-8 ripple">Change Price</button>
+						<button class="flat-button primary m-r-8 ripple" data-dialog="#idr-sell">Change Price</button>
 					</div>
 				</div>
 			</div>
@@ -128,19 +128,173 @@
 				<div class="card">
 					<div class="card-title">
 						<div class="font-title font-light font-grey">Price in BAHT : </div>
-						<div class="font-display1 font-light">USD 10.00</div>
+						<div class="font-display1 font-light">BAHT {{ Exchanger\Price::getBAHTSell() }}</div>
 					</div>
 					<div class="card-action">
-						<button class="flat-button primary m-r-8 ripple">Change Price</button>
+						<button class="flat-button primary m-r-8 ripple" data-dialog="#baht-sell">Change Price</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="dialog">
+	<div class="dialog" id="usd-buy">
 		<div class="dialog-inner">
-
+			<div class="dialog-header">
+				<div class="font-title">Change Customer Buy in USD</div>
+			</div>
+			<form action="/panel/change-price" method="post">
+				<input type="hidden" name="_token" value="{{ $csrf_token }}">
+				<input type="hidden" name="price_id" value="1">
+				<div class="dialog-content">
+					<input type="text" name="price" placholder="Customer Buy (USD)" value="{{ Exchanger\Price::getUSDBuy() }}" data-normal-input>
+				</div>
+				<div class="dialog-footer">
+					<div class="pull-right">
+						<button class="raised-button primary ripple" type="submit">Submit</button>
+					</div>
+				</div>
+			</form>
 		</div>
 	</div>
+
+	<div class="dialog" id="myr-buy">
+		<div class="dialog-inner">
+			<div class="dialog-header">
+				<div class="font-title">Change Customer Buy in MYR</div>
+			</div>
+			<form action="/panel/change-price" method="post">
+				<input type="hidden" name="_token" value="{{ $csrf_token }}">
+				<input type="hidden" name="price_id" value="3">
+				<div class="dialog-content">
+					<input type="text" name="price" placholder="Customer Buy (USD)" value="{{ Exchanger\Price::getMYRBuy() }}" data-normal-input>
+				</div>
+				<div class="dialog-footer">
+					<div class="pull-right">
+						<button class="raised-button primary ripple" type="submit">Submit</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="dialog" id="baht-buy">
+		<div class="dialog-inner">
+			<div class="dialog-header">
+				<div class="font-title">Change Customer Buy in BAHT</div>
+			</div>
+			<form action="/panel/change-price" method="post">
+				<input type="hidden" name="_token" value="{{ $csrf_token }}">
+				<input type="hidden" name="price_id" value="5">
+				<div class="dialog-content">
+					<input type="text" name="price" placholder="Customer Buy (USD)" value="{{ Exchanger\Price::getBAHTBuy() }}" data-normal-input>
+				</div>
+				<div class="dialog-footer">
+					<div class="pull-right">
+						<button class="raised-button primary ripple" type="submit">Submit</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="dialog" id="idr-buy">
+		<div class="dialog-inner">
+			<div class="dialog-header">
+				<div class="font-title">Change Customer Buy in IDR</div>
+			</div>
+			<form action="/panel/change-price" method="post">
+				<input type="hidden" name="_token" value="{{ $csrf_token }}">
+				<input type="hidden" name="price_id" value="7">
+				<div class="dialog-content">
+					<input type="text" name="price" placholder="Customer Buy (USD)" value="{{ Exchanger\Price::getIDRBuy() }}" data-normal-input>
+				</div>
+				<div class="dialog-footer">
+					<div class="pull-right">
+						<button class="raised-button primary ripple" type="submit">Submit</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+<div class="dialog" id="usd-sell">
+	<div class="dialog-inner">
+		<div class="dialog-header">
+			<div class="font-title">Change Customer Sell in USD</div>
+		</div>
+		<form action="/panel/change-price" method="post">
+			<input type="hidden" name="_token" value="{{ $csrf_token }}">
+			<input type="hidden" name="price_id" value="2">
+			<div class="dialog-content">
+				<input type="text" name="price" placholder="Customer Sell (USD)" value="{{ Exchanger\Price::getUSDSell() }}" data-normal-input>
+			</div>
+			<div class="dialog-footer">
+				<div class="pull-right">
+					<button class="raised-button primary ripple" type="submit">Submit</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<div class="dialog" id="myr-sell">
+	<div class="dialog-inner">
+		<div class="dialog-header">
+			<div class="font-title">Change Customer Sell in MYR</div>
+		</div>
+		<form action="/panel/change-price" method="post">
+			<input type="hidden" name="_token" value="{{ $csrf_token }}">
+			<input type="hidden" name="price_id" value="4">
+			<div class="dialog-content">
+				<input type="text" name="price" placholder="Customer Sell (USD)" value="{{ Exchanger\Price::getMYRSell() }}" data-normal-input>
+			</div>
+			<div class="dialog-footer">
+				<div class="pull-right">
+					<button class="raised-button primary ripple" type="submit">Submit</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<div class="dialog" id="baht-sell">
+	<div class="dialog-inner">
+		<div class="dialog-header">
+			<div class="font-title">Change Customer Sell in BAHT</div>
+		</div>
+		<form action="/panel/change-price" method="post">
+			<input type="hidden" name="_token" value="{{ $csrf_token }}">
+			<input type="hidden" name="price_id" value=6>
+			<div class="dialog-content">
+				<input type="text" name="price" placholder="Customer Sell (USD)" value="{{ Exchanger\Price::getBAHTSell() }}" data-normal-input>
+			</div>
+			<div class="dialog-footer">
+				<div class="pull-right">
+					<button class="raised-button primary ripple" type="submit">Submit</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<div class="dialog" id="idr-sell">
+	<div class="dialog-inner">
+		<div class="dialog-header">
+			<div class="font-title">Change Customer Sell in IDR</div>
+		</div>
+		<form action="/panel/change-price" method="post">
+			<input type="hidden" name="_token" value="{{ $csrf_token }}">
+			<input type="hidden" name="price_id" value=8>
+			<div class="dialog-content">
+				<input type="text" name="price" placholder="Customer Sell (USD)" value="{{ Exchanger\Price::getIDRSell() }}" data-normal-input>
+			</div>
+			<div class="dialog-footer">
+				<div class="pull-right">
+					<button class="raised-button primary ripple" type="submit">Submit</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
 @stop
+
+
