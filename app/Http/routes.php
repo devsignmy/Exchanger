@@ -25,4 +25,8 @@ Route::group(["prefix" => "panel"], function() {
 		Route::get("/delete/{id}", "PanelUserController@getDelete")->where('id', '[0-9]+');
 		Route::get("/restore/{id}", "PanelUserController@getRestore")->where('id', '[0-9]+');
 	});
+
+	Route::group(["prefix" => "bank"], function() {
+		Route::get("/{page?}", "PanelBankController@getIndex")->where("page", '[0-9]+');
+	});
 });
