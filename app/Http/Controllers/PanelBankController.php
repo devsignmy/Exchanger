@@ -68,5 +68,49 @@ class PanelBankController extends Controller {
 		return redirect()->to("/panel/bank/")->with("success", "Successfully add new bank account");
 	}
 
+	public function getEdit(Request $request, $id) {
+		$bank = Bank::find($id);
+
+		if (is_null($bank)) {
+			return redirect()->back()->with("error", "Cannot find Bank Account Data");
+		}
+
+		$this->data["bank"] = $bank;
+		$this->data["encrypt_id"] = Crypt::encrypt($bank->id);
+		$this->data["countrys"] = Country::where("name", "<>", "Others")->get();
+		return view("panel.bank.edit", $this->data);
+	}
+
+	public function postEdit(Request $request) {
+		$decr = Crypt::decrypt($request->input("bank_id"));
+
+		$bank = Bank::find($decr);
+
+		if (is_null($bank)) {
+			return redirect()->back()->with("error", "Cannot find Bank Account Data");
+		}
+
+		$bank->name = $request->input("name");
+		$bank->holder_name = $request->input("holder_name");
+		$bank->holder_number = $request->input("holder_number");
+		$bank->country_id = $request->input("country_id");
+
+		$bank->save();
+
+		return redirect()->back()->with("success", "Successfully edit bank account details");
+	}
+
+	public function getDelete(Request $request, $id) {
+		$bank = Bank::find($id);
+
+		if (is_null($bank)) {
+			return redirect()->back()->with("error", "Cannot find bank data");
+		}
+
+		$bank->delete();
+
+		return redirect()->back()->with("success", 'Succefully delete.');
+	}
+
 
 }

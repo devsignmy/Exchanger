@@ -28,7 +28,14 @@ Route::group(["prefix" => "panel"], function() {
 
 	Route::group(["prefix" => "bank"], function() {
 		Route::get("/{page?}", "PanelBankController@getIndex")->where("page", '[0-9]+');
+
 		Route::get("/add", "PanelBankController@getAdd");
 		Route::post("/add", "PanelBankController@postAdd");
+
+		Route::get("/edit/{id}", "PanelBankController@getEdit")->where('id', '[0-9]+');
+		Route::post("/edit", "PanelBankController@postEdit");
+
+		Route::get("/delete/{id}", "PanelBankController@getDelete")->where("id", '[0-9]+');
+//		Route::get("/restore/{id}", "PanelBankController@getRestore")->where("id", '[0-9]+');
 	});
 });
