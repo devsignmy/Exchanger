@@ -20,8 +20,9 @@
 					</div>
 				</a>
 				<div>
-					<a href="javascript:" class="raised-button ripple primary m-t-8 m-r-8">Add UToken</a>
-					<a href="javascript:" class="raised-button ripple primary m-t-8">Sub UToken</a>
+					U {{Exchanger\Transaction::getUToken()}}
+					<a href="javascript:" data-dialog="#add-utoken" class="raised-button ripple primary m-t-8 m-r-8">Add UToken</a>
+					<a href="javascript:" data-dialog="#sub-utoken" class="raised-button ripple primary m-t-8">Sub UToken</a>
 				</div>
 			</div>
 			<div class="col-xs-fluid-8">
@@ -151,7 +152,7 @@
 				<input type="hidden" name="_token" value="{{ $csrf_token }}">
 				<input type="hidden" name="price_id" value="1">
 				<div class="dialog-content">
-					<input type="text" name="price" placholder="Customer Buy (USD)" value="{{ Exchanger\Price::getUSDBuy() }}" data-normal-input>
+					<input type="text" name="price" placeholder="Customer Buy (USD)" value="{{ Exchanger\Price::getUSDBuy() }}" data-normal-input>
 				</div>
 				<div class="dialog-footer">
 					<div class="pull-right">
@@ -171,7 +172,7 @@
 				<input type="hidden" name="_token" value="{{ $csrf_token }}">
 				<input type="hidden" name="price_id" value="3">
 				<div class="dialog-content">
-					<input type="text" name="price" placholder="Customer Buy (USD)" value="{{ Exchanger\Price::getMYRBuy() }}" data-normal-input>
+					<input type="text" name="price" placeholder="Customer Buy (USD)" value="{{ Exchanger\Price::getMYRBuy() }}" data-normal-input>
 				</div>
 				<div class="dialog-footer">
 					<div class="pull-right">
@@ -191,7 +192,7 @@
 				<input type="hidden" name="_token" value="{{ $csrf_token }}">
 				<input type="hidden" name="price_id" value="5">
 				<div class="dialog-content">
-					<input type="text" name="price" placholder="Customer Buy (USD)" value="{{ Exchanger\Price::getBAHTBuy() }}" data-normal-input>
+					<input type="text" name="price" placeholder="Customer Buy (USD)" value="{{ Exchanger\Price::getBAHTBuy() }}" data-normal-input>
 				</div>
 				<div class="dialog-footer">
 					<div class="pull-right">
@@ -210,7 +211,7 @@
 				<input type="hidden" name="_token" value="{{ $csrf_token }}">
 				<input type="hidden" name="price_id" value="7">
 				<div class="dialog-content">
-					<input type="text" name="price" placholder="Customer Buy (USD)" value="{{ Exchanger\Price::getIDRBuy() }}" data-normal-input>
+					<input type="text" name="price" placeholder="Customer Buy (USD)" value="{{ Exchanger\Price::getIDRBuy() }}" data-normal-input>
 				</div>
 				<div class="dialog-footer">
 					<div class="pull-right">
@@ -230,7 +231,7 @@
 			<input type="hidden" name="_token" value="{{ $csrf_token }}">
 			<input type="hidden" name="price_id" value="2">
 			<div class="dialog-content">
-				<input type="text" name="price" placholder="Customer Sell (USD)" value="{{ Exchanger\Price::getUSDSell() }}" data-normal-input>
+				<input type="text" name="price" placeholder="Customer Sell (USD)" value="{{ Exchanger\Price::getUSDSell() }}" data-normal-input>
 			</div>
 			<div class="dialog-footer">
 				<div class="pull-right">
@@ -250,7 +251,7 @@
 			<input type="hidden" name="_token" value="{{ $csrf_token }}">
 			<input type="hidden" name="price_id" value="4">
 			<div class="dialog-content">
-				<input type="text" name="price" placholder="Customer Sell (USD)" value="{{ Exchanger\Price::getMYRSell() }}" data-normal-input>
+				<input type="text" name="price" placeholder="Customer Sell (USD)" value="{{ Exchanger\Price::getMYRSell() }}" data-normal-input>
 			</div>
 			<div class="dialog-footer">
 				<div class="pull-right">
@@ -270,7 +271,7 @@
 			<input type="hidden" name="_token" value="{{ $csrf_token }}">
 			<input type="hidden" name="price_id" value=6>
 			<div class="dialog-content">
-				<input type="text" name="price" placholder="Customer Sell (USD)" value="{{ Exchanger\Price::getBAHTSell() }}" data-normal-input>
+				<input type="text" name="price" placeholder="Customer Sell (USD)" value="{{ Exchanger\Price::getBAHTSell() }}" data-normal-input>
 			</div>
 			<div class="dialog-footer">
 				<div class="pull-right">
@@ -289,11 +290,49 @@
 			<input type="hidden" name="_token" value="{{ $csrf_token }}">
 			<input type="hidden" name="price_id" value=8>
 			<div class="dialog-content">
-				<input type="text" name="price" placholder="Customer Sell (USD)" value="{{ Exchanger\Price::getIDRSell() }}" data-normal-input>
+				<input type="text" name="price" placeholder="Customer Sell (USD)" value="{{ Exchanger\Price::getIDRSell() }}" data-normal-input>
 			</div>
 			<div class="dialog-footer">
 				<div class="pull-right">
 					<button class="raised-button primary ripple" type="submit">Submit</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<div class="dialog" id="add-utoken">
+	<div class="dialog-inner">
+		<div class="dialog-header">
+			<div class="font-title">Add Utoken</div>
+		</div>
+		<form action="/panel/add-utoken" method="post">
+			<input type="hidden" name="_token" value="{{ $csrf_token }}">
+			<div class="dialog-content">
+				<input type="text" name="value" placeholder="UToken to Add to System" data-normal-input>
+			</div>
+			<div class="dialog-footer">
+				<div class="pull-right">
+					<button class="raised-button primary ripple" type="submit">Confirm</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<div class="dialog" id="sub-utoken">
+	<div class="dialog-inner">
+		<div class="dialog-header">
+			<div class="font-title">Add Utoken</div>
+		</div>
+		<form action="/panel/sub-utoken" method="post">
+			<input type="hidden" name="_token" value="{{ $csrf_token }}">
+			<div class="dialog-content">
+				<input type="text" name="value" placeholder="UToken to Substitute from System" data-normal-input>
+			</div>
+			<div class="dialog-footer">
+				<div class="pull-right">
+					<button class="raised-button primary ripple" type="submit">Confirm</button>
 				</div>
 			</div>
 		</form>

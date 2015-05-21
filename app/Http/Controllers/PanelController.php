@@ -4,6 +4,7 @@ use Hash;
 use Auth;
 use Exchanger\User;
 use Exchanger\Price;
+use Exchanger\Transaction;
 use Illuminate\Http\Request;
 
 use Illuminate\Routing\Controller;
@@ -50,6 +51,29 @@ class PanelController extends Controller {
 		}
 
 		return redirect()->back()->with("success", "Succesfully change price");
+	}
+
+	public function postAddUtoken(Request $request) {
+		if (!is_numeric($request->input("value"))) {
+			return redirect()->back()->with("error", "Error: Value must integer");
+		}
+
+		Transaction::add($request->input("value"));
+		return redirect()->back()->with("success", "Successfully update UToken in System");
+	}
+
+	public function postSubUtoken(Request $request) {
+		if (!is_numeric($request->input("value"))) {
+			return redirect()->back()->with("error", "Error: Value must integer");
+		}
+
+		$limit = Transaction::getUToken();
+		if ( $limit < $request->input("value")) {
+			return redirect()->back()->with("error", "Error: Value Exceed limit. The limit is : " . $limit);
+		}
+
+		Transaction::sub($request->input("value"));
+		return redirect()->back()->with("success", "Successfully update UToken in System");
 	}
 
 }
