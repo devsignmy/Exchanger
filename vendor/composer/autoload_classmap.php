@@ -10,6 +10,7 @@ return array(
     'CreateBanksTable' => $baseDir . '/database/migrations/2015_05_19_135207_create_banks_table.php',
     'CreateCountriesTable' => $baseDir . '/database/migrations/2015_05_07_170314_create_countries_table.php',
     'CreatePriceTable' => $baseDir . '/database/migrations/2015_05_19_081237_create_price_table.php',
+    'CreateTransactionTable' => $baseDir . '/database/migrations/2015_05_21_150649_create_transaction_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2015_05_04_150413_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/File/Iterator.php',

@@ -19,6 +19,10 @@
 						<div class="font-title font-normal">UToken Balance</div>
 					</div>
 				</a>
+				<div>
+					<a href="javascript:" class="raised-button ripple primary m-t-8 m-r-8">Add UToken</a>
+					<a href="javascript:" class="raised-button ripple primary m-t-8">Sub UToken</a>
+				</div>
 			</div>
 			<div class="col-xs-fluid-8">
 				<a  href="javascript:;" class="card">
