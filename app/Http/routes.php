@@ -13,7 +13,7 @@ Route::group(["prefix" => "panel"], function() {
 	Route::post("/sub-utoken", "PanelController@postSubUtoken");
 
 	Route::get("/ip", function() {
-		echo $_SERVER['REMOTE_ADDR'];;
+		echo Session::get("browse_country_id");
 	});
 
 	Route::group(["prefix" => "user"], function() {
