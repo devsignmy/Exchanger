@@ -41,6 +41,7 @@
 						
 					</div>
 					<div class="nav-profile">
+						<div class="overlay"></div>
 						<a href="javascript:"><img src="/img/profile.png" alt=""></a>
 						<div class="profile-name">{{$loginuser->firstname . " " . $loginuser->lastname}}</div>
 						<div class="profile-email">{{ $loginuser->email }}</div>

@@ -4,7 +4,8 @@ use Hash;
 use Auth;
 use Exchanger\User;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
+use Illuminate\Routing\Controller as BaseController;
+use Exchanger\Http\Controllers\Controller ;
 use Crypt;
 
 class PanelUserController extends Controller {
@@ -12,6 +13,7 @@ class PanelUserController extends Controller {
 
 	public function __construct()
 	{
+		parent::__construct();
 		$this->middleware('auth');
 		$this->data["csrf_token"] = csrf_token();
 		$this->data["navigation_menu"] = "user";
@@ -70,7 +72,7 @@ class PanelUserController extends Controller {
 		$user->username = $request->input("username");
 		$user->email = $request->input("email");
 		$user->phone_number = $request->input("phone_number");
-		$user->password = Hash::make($request->input("firstname"));
+		$user->password = Hash::make($request->input("password"));
 		$user->access_level = 1;
 
 		$user->save();

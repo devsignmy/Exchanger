@@ -1,5 +1,5 @@
 <div class="toolbar">
-	<div class="toolbar-inner shadow fixed">
+	<div class="toolbar-inner gradient-purple-blue shadow fixed">
 		<a class="icon-button ripple morph" href="javascript:" data-side-navigation=".side-navigation">
 			<i data-icon="menu" class="white" ></i>
 			<i data-icon="arrow-left" class="white" ></i>

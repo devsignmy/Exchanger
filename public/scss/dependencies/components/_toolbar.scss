@@ -49,7 +49,12 @@
 
 		&.inverse {
 			.toolbar-title {
-				color: $color-grey-900;
+				color: $color-grey-700;
+
+			}
+
+			svg {
+				fill: $color-grey-700;
 			}
 		}
 	}

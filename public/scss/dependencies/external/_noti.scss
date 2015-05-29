@@ -1,0 +1,19 @@
+.noti {
+	background: $color-pink-A400;
+	color: $color-white;
+	padding: 16px;
+	@include border-radius(2px);
+	@include box-shadow-z1;
+
+	.noti-title {
+		@include ty-title;
+		color: $color-white;
+		font-weight: 300;
+		margin-bottom: 12px;
+	}
+
+	.noti-text {
+		color: $color-white;
+
+	}
+}

@@ -6,7 +6,8 @@ use Auth;
 use Exchanger\User;
 use Exchanger\BitAnd;
 use Session;
-use Illuminate\Routing\Controller;
+use Illuminate\Routing\Controller as BaseController;
+use Exchanger\Http\Controllers\Controller ;
 
 class PublicController extends Controller {
 
@@ -14,6 +15,7 @@ class PublicController extends Controller {
 
 	public function __construct()
 	{
+		parent::__construct();
 		$this->middleware('guest');
 		$this->data["csrf_token"] = csrf_token();
 		$this->data["navigation_menu"] = "home";

@@ -34,7 +34,7 @@ class CreateUsersTable extends Migration {
 		$user->username = "nizulzaim";
 		$user->email = "skynightz93@gmail.com";
 		$user->password = Hash::make("skynightz9392");
-		$user->access_level = 7;
+		$user->access_level = 6;
 
 		$user->save();
 	}

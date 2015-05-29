@@ -1,5 +1,7 @@
 $col-size : 24;
 
+$easeInOutNew : cubic-bezier(.37,.15,.32,.94);
+
 @mixin extending-col-default($size) {
 	.col-#{$size} {
 		@extend .col-default;
@@ -442,21 +444,21 @@ $raised-button-pressed-shadow: 0   6px 5px rgba(#000, 0.09), 0 7px 6px rgba(#000
 }
 
 @mixin ty-subhead {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: normal;
     line-height: 24px;
     color: rgba(0,0,0, 0.87);
 }
 
 @mixin ty-body2 {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
     line-height: 20px;
     color: rgba(0,0,0, 0.87);
 }
 
 @mixin ty-body {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: normal;
     line-height: 20px;
     color: rgba(0,0,0, 0.87);
@@ -470,7 +472,7 @@ $raised-button-pressed-shadow: 0   6px 5px rgba(#000, 0.09), 0 7px 6px rgba(#000
 }
 
 @mixin ty-menu {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
     line-height: 20px;
     color: rgba(0,0,0, 0.87);

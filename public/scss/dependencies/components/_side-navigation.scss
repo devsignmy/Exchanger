@@ -21,7 +21,7 @@
 		top: 0;
 		left: 0;
 		@include transform(translateX(-100%));
-		@include transition(transform 0.35s $easeInOutExpo);
+		@include transition(transform 0.4s cubic-bezier(.37,.15,.32,.94));
 
 		& .nav-top {
 			height: 56px;
@@ -35,26 +35,47 @@
 
 		& .nav-profile {
 			padding: 24px 16px;
-			border: 1px solid $color-grey-100;
-
+			background: url(../img/back1.png);
+			background-position: center;
+			background-size: cover;
+			position: relative;
 			& img {
 				width: 64px;
 				height: 64px;
 				display: block;
 				@include border-radius(50%);
 				margin: 0;
+				position:relative;
+				z-index: 1;
 			}
 
 			& .profile-name {
 				@include ty-body;
 				font-weight: 500;
+				color: $color-white;
 				padding-top: 16px;
+				position:relative;
+				z-index: 1;
+				display: table;
+			}
+
+			.overlay {
+				background: $color-black;
+				opacity: 0.4;
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				z-index: 0;
 			}
 
 			.profile-email {
 				@include ty-body;
 				font-weight: 400;
-				color: $color-grey-500;
+				color: $color-grey-100;
+				position:relative;
+				z-index: 1;
 			}
 		}
 
@@ -67,7 +88,8 @@
 			}
 
 			.nav-menu {
-				padding-top: 8px;
+				margin-top: 8px;
+				overflow: hidden;
 				.nav-list {
 					width: 100%;
 					height: 48px;
@@ -79,7 +101,9 @@
 					line-height: 32px;
 					text-decoration: none;
 					color: $color-grey-600;
+					background: $color-white;
 					@include transition(background 0.3s ease-in-out);
+					z-index: 3;
 					&:hover {
 						background: $color-grey-200;
 					}
@@ -91,6 +115,22 @@
 
 						svg {
 							fill: $color-grey;
+						}
+					}
+
+					& .chevron {
+						position: absolute;
+						right: 12px;
+						top: 12px;
+						width: 24px;
+						height: 24px;
+//						@include transition(transform 0.3s ease-in-out);
+						& svg {
+							fill : $color-grey;
+						}
+
+						&.show {
+							@include transform(rotate(90deg));
 						}
 					}
 
@@ -106,10 +146,37 @@
 								fill: $color-blue-400;
 							}
 						}
+
+						& .chevron {
+							svg {
+								fill : $color-blue-400;
+							}
+						}
 					}
 				}
+				.nav-sublist {
+					position: relative;
+					z-index: 1;
+					display: table;
+					width: 100%;
+					height: 0;
+//					@include transform(translate3d(0,0,0));
+					@include transition(margin-top 0.4s $easeInOutNew);
+					.nav-list {
+						padding-left: 72px;
 
-
+						.icon {
+							left: 36px;
+						}
+					}
+					&.show {
+						margin: 0;
+					}
+				}
+				.divider {
+					height: 1px;
+					background: $color-grey-200;
+				}
 			}
 		}
 	}
@@ -122,7 +189,7 @@
 		height: 100%;
 		background: $color-black;
 		opacity: 0;
-		@include transition(opacity 0.5s $easeInOutExpo);
+		@include transition(opacity 0.5s $easeInOutNew);
 	}
 
 	&.active {

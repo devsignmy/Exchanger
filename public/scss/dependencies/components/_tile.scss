@@ -1,0 +1,88 @@
+.tile-container {
+	max-width: 1280px;
+	padding-left: 4px;
+	padding-right: 4px;
+	margin: 0 auto;
+	padding-bottom: 24px;
+	padding-top: 14px;
+	& > .row {
+		margin-left: -4px;
+		margin-right: -4px;
+
+		& > [class^="col-xs-"],
+		[class^="col-xd-"],
+		[class^="col-md-"],
+		[class^="col-sm-"],
+		[class^="col-lg-"],
+		[class^="col-xlg"] {
+			padding-left: 4px;
+			padding-right: 4px;
+		}
+	}
+
+	.tile {
+		width: 100%;
+		min-height: 64px;
+		background: $color-grey-900;
+		@include box-shadow-z1;
+		margin-top: 8px;
+		position: relative;
+		overflow: hidden;
+		@include transition(box-shadow 0.2s $easeInOutNew);
+		z-index: 1;
+		.tile-img {
+			max-width: 100%;
+			width: 100%;
+			position: relative;
+			z-index: 2;
+		}
+
+		.tile-title	{
+			background: $color-grey-800;
+			width: 100%;
+			padding: 24px 16px;
+			color: $color-white;
+			position: relative;
+			z-index: 3;
+			[class^="font-"] {
+				color: inherit;
+			}
+
+			&.tile-yellow {
+				background: $color-yellow-700;
+				color: $color-grey-900;
+			}
+
+			&.tile-amber {
+				background: $color-amber-500;
+				color: $color-grey-900;
+			}
+
+			&.tile-blue-grey {
+				background: $color-blue-grey-500;
+			}
+
+			&.tile-pink {
+				background: $color-pink-500;
+			}
+
+			&.tile-red {
+				background: $color-red-500;
+			}
+
+			&.tile-brown {
+				background: $color-brown-500;
+			}
+
+			&.tile-grey {
+				background: $color-grey-500;
+			}
+		}
+
+		&:hover {
+			@include box-shadow-z4;
+			z-index: 3;
+
+		}
+	}
+}

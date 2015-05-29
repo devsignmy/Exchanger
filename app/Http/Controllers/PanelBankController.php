@@ -6,7 +6,8 @@ use Exchanger\User;
 use Exchanger\Bank;
 use Exchanger\Country;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
+use Illuminate\Routing\Controller as BaseController;
+use Exchanger\Http\Controllers\Controller ;
 use Crypt;
 
 class PanelBankController extends Controller {
@@ -14,6 +15,7 @@ class PanelBankController extends Controller {
 
 	public function __construct()
 	{
+		parent::__construct();
 		$this->middleware('auth');
 		$this->data["csrf_token"] = csrf_token();
 		$this->data["navigation_menu"] = "bank";

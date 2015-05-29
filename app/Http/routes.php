@@ -12,6 +12,10 @@ Route::group(["prefix" => "panel"], function() {
 	Route::post("/add-utoken", "PanelController@postAddUtoken");
 	Route::post("/sub-utoken", "PanelController@postSubUtoken");
 
+	Route::get("/ip", function() {
+		echo Session::get("browse_country_id");
+	});
+
 	Route::group(["prefix" => "user"], function() {
 		Route::get("/{page?}", "PanelUserController@getIndex")->where('page', '[0-9]+');
 

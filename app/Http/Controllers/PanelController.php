@@ -4,23 +4,42 @@ use Hash;
 use Auth;
 use Exchanger\User;
 use Exchanger\Price;
+use Exchanger\BitAnd;
 use Exchanger\Transaction;
 use Illuminate\Http\Request;
 
-use Illuminate\Routing\Controller;
+use Illuminate\Routing\Controller as BaseController;
+use Exchanger\Http\Controllers\Controller ;
 
 class PanelController extends Controller {
 
 	public function __construct()
 	{
 		$this->middleware('auth');
+		parent::__construct();
 		$this->data["navigation_menu"] = "panel";
 		$this->data["csrf_token"] = csrf_token();
 		$this->data["loginuser"] = User::find(Auth::user()->id);
+
+		$user = $this->data["loginuser"];
+		$this->data["is_user"] = false;
+		$this->data["is_admin"] = false;
+		$this->data["is_super"] = false;
+
+		if (BitAnd::check($user->access_level, 1)) {
+			$this->data["is_user"] = true;
+		}
+		if (BitAnd::check($user->access_level, 2)) {
+			$this->data["is_admin"] = true;
+		}
+		if (BitAnd::check($user->access_level, 4)) {
+			$this->data["is_super"] = true;
+		}
 	}
 
 	public function getIndex() {
 		return view("panel.index", $this->data);
+
 	}
 
 	public function getLogout() {
