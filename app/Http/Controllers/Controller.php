@@ -12,16 +12,18 @@ abstract class Controller extends BaseController {
 
 	public function __construct() {
 		if (!Session::has("browse_country_id")) {
-			$json = file_get_contents("http://ip-api.com/json"); // this WILL do an http request for you
+			$json = file_get_contents("http://api.hostip.info/get_json.php?ip=12.215.42.19"); // this WILL do an http request for you
 			$data = json_decode($json);
 
-			$country = Country::where("name", $data->country)->first();
-			$id = $country->id;
+			$country = Country::where("name", $data->country_name)->first();
+			$id = 0;
 			if (is_null($country)) {
 				$id = 0;
+			} else {
+				$id = $country->id;
 			}
 
-			Session::put("browse_country_id", $country->id);
+			Session::put("browse_country_id", $id);
 		}
 	}
 }
