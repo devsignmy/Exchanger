@@ -12,7 +12,7 @@ abstract class Controller extends BaseController {
 
 	public function __construct() {
 		if (!Session::has("browse_country_id")) {
-			$json = file_get_contents("http://api.hostip.info/get_json.php?ip=12.215.42.19"); // this WILL do an http request for you
+			$json = file_get_contents("http://api.hostip.info/get_json.php?ip=". $_SERVER['REMOTE_ADDR']); // this WILL do an http request for you
 			$data = json_decode($json);
 
 			$country = Country::where("name", $data->country_name)->first();
