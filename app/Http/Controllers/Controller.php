@@ -15,7 +15,7 @@ abstract class Controller extends BaseController {
 			$json = file_get_contents("http://api.hostip.info/get_json.php?ip=". $_SERVER['REMOTE_ADDR']); // this WILL do an http request for you
 			$data = json_decode($json);
 
-			$country = Country::where("name", $data->country_name)->first();
+			$country = Country::where("name", ucfirst(strtolower($data->country_name)))->first();
 			$id = 0;
 			if (is_null($country)) {
 				$id = 0;
